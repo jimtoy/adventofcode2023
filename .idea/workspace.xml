@@ -4,12 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df45069b-d86c-47d1-a3a9-d343fb2da95e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/adventofcode2023.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="df45069b-d86c-47d1-a3a9-d343fb2da95e" name="Changes" comment="fix up unintended commits">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/src/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/adventofcode2023/day1/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/adventofcode2023/day1/input" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +43,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "Application.Main.executor": "Run",
+    "Application.day1.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -61,6 +62,12 @@
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\jimto\ds\projects\adventofcode2023\src" />
+      <recent name="C:\Users\jimto\ds\projects\adventofcode2023\src\day1" />
+    </key>
+  </component>
   <component name="RunManager" selected="Application.day1.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -105,11 +112,33 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1732807800538</updated>
-      <workItem from="1732807801720" duration="471000" />
+      <workItem from="1732807801720" duration="804000" />
     </task>
+    <task id="LOCAL-00001" summary="Day 1 commit.  I didnt do this last year so I am trying to catch up in preparation for 2024">
+      <option name="closed" value="true" />
+      <created>1732808426146</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1732808426146</updated>
+    </task>
+    <task id="LOCAL-00002" summary="fix up unintended commits">
+      <option name="closed" value="true" />
+      <created>1732808609117</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1732808609117</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Day 1 commit.  I didnt do this last year so I am trying to catch up in preparation for 2024" />
+    <MESSAGE value="fix up unintended commits" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix up unintended commits" />
   </component>
 </project>
