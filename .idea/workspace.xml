@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df45069b-d86c-47d1-a3a9-d343fb2da95e" name="Changes" comment="Day2 , part 1">
+      <change afterPath="$PROJECT_DIR$/src/day3/GearRatios.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/day3/input" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/day2/CubeConundrum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/day2/CubeConundrum.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,41 +36,48 @@
     &quot;accountId&quot;: &quot;776a8356-6398-4d26-bad4-efcc650b5c73&quot;
   }
 }</component>
+  <component name="LLMProjectSettings">
+    <option name="turned_on" value="false" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2pU5Qu0PbM3GH526Us84SIl6Mmz" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "Application.CubeConundrum.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.day1.Main.executor": "Run",
-    "Application.org.ea.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/jimto/ds/projects/adventofcode2023_og",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;Application.CubeConundrum.executor&quot;: &quot;Run&quot;,
+    &quot;Application.GearRatios.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.day1.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.org.ea.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/jimto/ds/projects/adventofcode2023_og&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;ml.llm.LLMConfigurable&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\jimto\ds\projects\adventofcode2023" />
@@ -77,13 +85,26 @@
       <recent name="C:\Users\jimto\ds\projects\adventofcode2023\src\day1" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.CubeConundrum">
+  <component name="RunManager" selected="Application.GearRatios">
     <configuration name="CubeConundrum" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="day2.CubeConundrum" />
       <module name="adventofcode2023" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="day2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GearRatios" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="day3.GearRatios" />
+      <module name="adventofcode2023" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="day3.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -126,6 +147,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.GearRatios" />
         <item itemvalue="Application.CubeConundrum" />
         <item itemvalue="Application.day1.Main" />
         <item itemvalue="Application.org.ea.Main" />
@@ -154,6 +176,10 @@
       <workItem from="1732836496819" duration="538000" />
       <workItem from="1732849122629" duration="2704000" />
       <workItem from="1732851937813" duration="4580000" />
+      <workItem from="1732907786467" duration="1266000" />
+      <workItem from="1732909341059" duration="2184000" />
+      <workItem from="1732911675885" duration="1371000" />
+      <workItem from="1732913130511" duration="308000" />
     </task>
     <task id="LOCAL-00001" summary="Day 1 commit.  I didnt do this last year so I am trying to catch up in preparation for 2024">
       <option name="closed" value="true" />
