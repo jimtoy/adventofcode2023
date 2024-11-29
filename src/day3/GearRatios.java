@@ -24,7 +24,7 @@ public class GearRatios {
 
         }
 
-        Map<String, Boolean> foundNumbers = new HashMap<>();
+        List<String> foundNumbers = new ArrayList<>();
 
         for (Map.Entry<Integer, List<Character>> schematic : schematicMap.entrySet()) {
             int row = schematic.getKey();
@@ -61,13 +61,13 @@ public class GearRatios {
                     symbolfound = true;
                 }
 
-                if (current != '.') {
+                if (isNumeric(current)) {
                     if (!isSymbol(current)) {
                         numberStore.append(current);
                     }
                 } else {
-                    if (numberStore.length() > 0) {
-                        foundNumbers.put(numberStore.toString(), symbolfound);
+                    if (!numberStore.isEmpty() && symbolfound) {
+                        foundNumbers.add(numberStore.toString());
                     }
                     numberStore = new StringBuffer();
                     symbolfound = false;
@@ -80,11 +80,10 @@ public class GearRatios {
         System.out.println(foundNumbers);
 
         int totalValue = 0;
-        for (Map.Entry<String, Boolean> number : foundNumbers.entrySet()) {
-            if (number.getValue()) {
-                totalValue += Integer.parseInt(number.getKey());
-            }
+        for (String number : foundNumbers) {
+            totalValue += Integer.parseInt(number);
         }
+
 
         System.out.println(totalValue);
 
@@ -110,6 +109,15 @@ public class GearRatios {
             } catch (NumberFormatException e) {
                 return true;
             }
+        }
+    }
+
+    public static boolean isNumeric(Character c) {
+        try {
+            Integer.parseInt(c.toString());
+            return true;
+        } catch (NumberFormatException e) {
+            return false;
         }
     }
 }
