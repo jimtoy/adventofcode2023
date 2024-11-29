@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="df45069b-d86c-47d1-a3a9-d343fb2da95e" name="Changes" comment="Day2 , part 1">
-      <change afterPath="$PROJECT_DIR$/src/day2/CubeConundrum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/day2/input" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/day2/CubeConundrum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/day2/CubeConundrum.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +153,7 @@
       <workItem from="1732811331955" duration="5346000" />
       <workItem from="1732836496819" duration="538000" />
       <workItem from="1732849122629" duration="2704000" />
-      <workItem from="1732851937813" duration="3186000" />
+      <workItem from="1732851937813" duration="4580000" />
     </task>
     <task id="LOCAL-00001" summary="Day 1 commit.  I didnt do this last year so I am trying to catch up in preparation for 2024">
       <option name="closed" value="true" />
@@ -180,11 +179,30 @@
       <option name="project" value="LOCAL" />
       <updated>1732808714000</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Day2 , part 1">
+      <option name="closed" value="true" />
+      <created>1732855449090</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1732855449090</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Day 1 commit.  I didnt do this last year so I am trying to catch up in preparation for 2024" />

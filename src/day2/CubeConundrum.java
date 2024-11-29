@@ -47,6 +47,7 @@ public class CubeConundrum {
         }
 
         int gameSum = 0;
+        int gamePowerSum = 0;
         for (Map.Entry<Integer, Map> game : gameMap.entrySet()) {
 
             int gameKey = game.getKey();
@@ -55,6 +56,9 @@ public class CubeConundrum {
             int blue = Integer.parseInt(game.getValue().get("blue").toString());
             int green = Integer.parseInt(game.getValue().get("green").toString());
 
+
+            int gamePower = red * green * blue;
+            gamePowerSum += gamePower;
             if (red <= maxRed && blue <= maxBlue && green <= maxGreen) {
                 gameSum += gameKey;
             } else {
@@ -65,5 +69,6 @@ public class CubeConundrum {
         }
 
         System.out.println(gameSum);
+        System.out.printf(String.valueOf(gamePowerSum));
     }
 }
