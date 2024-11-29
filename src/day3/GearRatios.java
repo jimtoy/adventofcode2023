@@ -33,28 +33,25 @@ public class GearRatios {
             for (int i = 0; i < schematic.getValue().size(); i++) {
                 char current = schematic.getValue().get(i);
 
+                Character rightValue = getValue(schematicMap, row, i + 1);
+                Character leftValue = getValue(schematicMap, row, i - 1);
 
-                int left = i - 1;
-                int right = i + 1;
-                int up = row - 1;
-                int down = row + 1;
+                Character upValue = getValue(schematicMap, row - 1, i);
+                Character downValue = getValue(schematicMap, row + 1, i);
 
-                Character rightValue = getValue(schematicMap, row, right);
-                Character rightUpValue = getValue(schematicMap, up, right);
-                Character upValue = getValue(schematicMap, up, i);
-                Character leftUpValue = getValue(schematicMap, up, left);
-                Character leftValue = getValue(schematicMap, row, left);
-                Character leftDownValue = getValue(schematicMap, down, left);
-                Character downValue = getValue(schematicMap, down, i);
-                Character downRightValue = getValue(schematicMap, down, i);
+                Character rightUpValue = getValue(schematicMap, row - 1, i + 1);
+                Character leftUpValue = getValue(schematicMap, row - 1, i - 1);
+
+                Character downRightValue = getValue(schematicMap, row + 1, i + 1);
+                Character leftDownValue = getValue(schematicMap, row + 1, i - 1);
 
                 boolean rightValueIsSymbol = isSymbol(rightValue);
-                boolean rightUpValueIsSymbol = isSymbol(rightUpValue);
-                boolean upValueIsSymbol = isSymbol(upValue);
                 boolean leftValueIsSymbol = isSymbol(leftValue);
+                boolean upValueIsSymbol = isSymbol(upValue);
+                boolean downValueIsSymbol = isSymbol(downValue);
+                boolean rightUpValueIsSymbol = isSymbol(rightUpValue);
                 boolean leftUpValueIsSymbol = isSymbol(leftUpValue);
                 boolean leftDownValueIsSymbol = isSymbol(leftDownValue);
-                boolean downValueIsSymbol = isSymbol(downValue);
                 boolean downRightValueIsSymbol = isSymbol(downRightValue);
 
                 if (rightUpValueIsSymbol || rightValueIsSymbol || upValueIsSymbol || leftValueIsSymbol || leftUpValueIsSymbol || leftDownValueIsSymbol || downValueIsSymbol || downRightValueIsSymbol) {
@@ -69,7 +66,7 @@ public class GearRatios {
                     if (!numberStore.isEmpty() && symbolfound) {
                         foundNumbers.add(numberStore.toString());
                     }
-                    numberStore = new StringBuffer();
+                    numberStore.setLength(0);
                     symbolfound = false;
                 }
 
@@ -91,7 +88,6 @@ public class GearRatios {
     }
 
     public static Character getValue(Map<Integer, List<Character>> schematicMap, Integer row, Integer column) {
-
         try {
             return schematicMap.get(row).get(column);
         } catch (Exception e) {
@@ -107,6 +103,7 @@ public class GearRatios {
                 Integer.parseInt(c.toString());
                 return false;
             } catch (NumberFormatException e) {
+                System.out.println("found character " + c);
                 return true;
             }
         }
