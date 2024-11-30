@@ -3,27 +3,36 @@ package day3;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+
+/*
+This code isn't mine.  Credit goes to zebalu who's code I used to help me find logic flaws in my own code.
+https://github.com/zebalu/advent-of-code-2023/blob/9ec6dd44e461967e2b6704449100aacdfb6a3d96/aoc2023/src/main/java/io/github/zebalu/aoc2023/days/Day03.java#L14
+
+ */
+
 public class Day03 {
 
     public static void main(String[] args) {
         List<String> matrix = readInput().lines().toList();
-        part1(matrix);
+        part1();
         part2(matrix);
     }
 
-    private static void part1(List<String> matrix) {
+    public static List<Integer> part1() {
+        List<String> matrix = readInput().lines().toList();
+
         Set<Coord> startCoords = new HashSet<>();
         for (int y = 0; y < matrix.size(); ++y) {
             String line = matrix.get(y);
             for (int x = 0; x < line.length(); ++x) {
                 Coord coord = new Coord(x, y);
                 char chr = line.charAt(x);
-                //System.out.println(chr);
                 if (isSymbol(chr)) {
                     coord.adjecents().stream()
                             .filter(c -> c.isValid(matrix) && Character.isDigit(matrix.get(c.y()).charAt(c.x())))
@@ -31,9 +40,15 @@ public class Day03 {
                 }
             }
         }
-        System.out.println(startCoords);
-        int sum = startCoords.stream().mapToInt(c -> readNumberFrom(matrix, c)).sum();
-        System.out.println(sum);
+        List<Integer> foundValues = new ArrayList<>();
+        int sum = startCoords.stream().mapToInt(c -> {
+            int value = readNumberFrom(matrix, c);
+            foundValues.add(value);
+            return value;
+        }).sum();
+
+        System.out.println("Day03 Sum: " + sum);
+        return foundValues;
     }
 
     private static void part2(List<String> matrix) {
@@ -53,7 +68,7 @@ public class Day03 {
                 }
             }
         }
-        System.out.println(sum);
+        System.out.println("Day03 Sum: " + sum);
     }
 
     private static Coord findFirstChar(List<String> matrix, Coord coord) {
@@ -71,8 +86,7 @@ public class Day03 {
         while (x < line.length() && Character.isDigit(line.charAt(x))) {
             ++x;
         }
-        int readValue =  Integer.parseInt(line.substring(startCoord.x(), x));
-        System.out.printf(readValue + ",");
+        int readValue = Integer.parseInt(line.substring(startCoord.x(), x));
         return readValue;
     }
 

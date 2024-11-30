@@ -11,6 +11,11 @@ import java.util.Map;
 public class GearRatios {
 
     public static void main(String[] args) throws IOException {
+        part1();
+
+    }
+
+    public static List<Integer> part1() throws IOException {
         List<String> lines = Files.readAllLines(Paths.get("src/day3/input"));
         Map<Integer, List<Character>> schematicMap = new HashMap<>();
         int lineCount = 0;
@@ -25,52 +30,28 @@ public class GearRatios {
         }
 
         Map<Integer, List<String>> foundMap = new HashMap<>();
-        List<String> foundNumbers = new ArrayList<>();
+        List<Integer> foundNumbers = new ArrayList<>();
 
-        StringBuilder currentLineRebuilt = new StringBuilder();
         for (Map.Entry<Integer, List<Character>> schematic : schematicMap.entrySet()) {
             int row = schematic.getKey();
             StringBuilder numberStore = new StringBuilder();
             List<String> rowFoundNumbers = new ArrayList<>();
             boolean symbolfound = false;
-            currentLineRebuilt.setLength(0);
+
             for (int i = 0; i < schematic.getValue().size(); i++) {
-
                 char current = schematic.getValue().get(i);
-                currentLineRebuilt.append(current);
 
-
-                Character rightValue = getValue(schematicMap, row, i + 1);
-                Character leftValue = getValue(schematicMap, row, i - 1);
-
-                Character upValue = getValue(schematicMap, row - 1, i);
-                Character downValue = getValue(schematicMap, row + 1, i);
-
-                Character rightUpValue = getValue(schematicMap, row - 1, i + 1);
-                Character leftUpValue = getValue(schematicMap, row - 1, i - 1);
-
-                Character downRightValue = getValue(schematicMap, row + 1, i + 1);
-                Character leftDownValue = getValue(schematicMap, row + 1, i - 1);
-
-                boolean rightValueIsSymbol = isSymbol(rightValue);
-                boolean leftValueIsSymbol = isSymbol(leftValue);
-                boolean upValueIsSymbol = isSymbol(upValue);
-                boolean downValueIsSymbol = isSymbol(downValue);
-                boolean rightUpValueIsSymbol = isSymbol(rightUpValue);
-                boolean leftUpValueIsSymbol = isSymbol(leftUpValue);
-                boolean leftDownValueIsSymbol = isSymbol(leftDownValue);
-                boolean downRightValueIsSymbol = isSymbol(downRightValue);
-
-                if (rightUpValueIsSymbol || rightValueIsSymbol || upValueIsSymbol || leftValueIsSymbol || leftUpValueIsSymbol || leftDownValueIsSymbol || downValueIsSymbol || downRightValueIsSymbol) {
-                    symbolfound = true;
-                }
                 if (isNumeric(current)) {
+                    //only check if we didnt already find a symbol
+                    if (!symbolfound) {
+                        symbolfound = isNearSymbol(schematicMap, row, i);
+                    }
                     if (!isSymbol(current)) {
                         numberStore.append(current);
                     }
                 } else {
                     if (!numberStore.isEmpty() && symbolfound) {
-                        foundNumbers.add(numberStore.toString());
+                        foundNumbers.add(Integer.parseInt(numberStore.toString()));
                         rowFoundNumbers.add(numberStore.toString());
                     }
                     numberStore.setLength(0);
@@ -80,7 +61,7 @@ public class GearRatios {
                 //eol hack
                 if (i == schematic.getValue().size() - 1) {
                     if (!numberStore.isEmpty() && symbolfound) {
-                        foundNumbers.add(numberStore.toString());
+                        foundNumbers.add(Integer.parseInt(numberStore.toString()));
                         rowFoundNumbers.add(numberStore.toString());
                     }
                     numberStore.setLength(0);
@@ -91,18 +72,39 @@ public class GearRatios {
             }
             foundMap.put(row, rowFoundNumbers);
         }
-        System.out.println(foundNumbers);
-        for (Map.Entry<Integer, List<String>> row : foundMap.entrySet()) {
-            System.out.println(row.getKey() + " " + row.getValue());
-        }
 
         int totalValue = 0;
-        for (String number : foundNumbers) {
-            totalValue += Integer.parseInt(number);
+        for (Integer number : foundNumbers) {
+            totalValue += number;
         }
+        System.out.println("Gear Ratio: " + totalValue);
+        return foundNumbers;
 
-        System.out.println(totalValue);
+    }
 
+    public static boolean isNearSymbol(Map<Integer, List<Character>> schematicMap, int row, int i) {
+        Character rightValue = getValue(schematicMap, row, i + 1);
+        Character leftValue = getValue(schematicMap, row, i - 1);
+
+        Character upValue = getValue(schematicMap, row - 1, i);
+        Character downValue = getValue(schematicMap, row + 1, i);
+
+        Character rightUpValue = getValue(schematicMap, row - 1, i + 1);
+        Character leftUpValue = getValue(schematicMap, row - 1, i - 1);
+
+        Character downRightValue = getValue(schematicMap, row + 1, i + 1);
+        Character leftDownValue = getValue(schematicMap, row + 1, i - 1);
+
+        boolean rightValueIsSymbol = isSymbol(rightValue);
+        boolean leftValueIsSymbol = isSymbol(leftValue);
+        boolean upValueIsSymbol = isSymbol(upValue);
+        boolean downValueIsSymbol = isSymbol(downValue);
+        boolean rightUpValueIsSymbol = isSymbol(rightUpValue);
+        boolean leftUpValueIsSymbol = isSymbol(leftUpValue);
+        boolean leftDownValueIsSymbol = isSymbol(leftDownValue);
+        boolean downRightValueIsSymbol = isSymbol(downRightValue);
+
+        return (rightUpValueIsSymbol || rightValueIsSymbol || upValueIsSymbol || leftValueIsSymbol || leftUpValueIsSymbol || leftDownValueIsSymbol || downValueIsSymbol || downRightValueIsSymbol);
     }
 
     public static Character getValue(Map<Integer, List<Character>> schematicMap, Integer row, Integer column) {
