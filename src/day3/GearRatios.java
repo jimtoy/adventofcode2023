@@ -24,14 +24,21 @@ public class GearRatios {
 
         }
 
+        Map<Integer, List<String>> foundMap = new HashMap<>();
         List<String> foundNumbers = new ArrayList<>();
 
+        StringBuilder currentLineRebuilt = new StringBuilder();
         for (Map.Entry<Integer, List<Character>> schematic : schematicMap.entrySet()) {
             int row = schematic.getKey();
-            StringBuffer numberStore = new StringBuffer();
+            StringBuilder numberStore = new StringBuilder();
+            List<String> rowFoundNumbers = new ArrayList<>();
             boolean symbolfound = false;
+            currentLineRebuilt.setLength(0);
             for (int i = 0; i < schematic.getValue().size(); i++) {
+
                 char current = schematic.getValue().get(i);
+                currentLineRebuilt.append(current);
+
 
                 Character rightValue = getValue(schematicMap, row, i + 1);
                 Character leftValue = getValue(schematicMap, row, i - 1);
@@ -57,7 +64,6 @@ public class GearRatios {
                 if (rightUpValueIsSymbol || rightValueIsSymbol || upValueIsSymbol || leftValueIsSymbol || leftUpValueIsSymbol || leftDownValueIsSymbol || downValueIsSymbol || downRightValueIsSymbol) {
                     symbolfound = true;
                 }
-
                 if (isNumeric(current)) {
                     if (!isSymbol(current)) {
                         numberStore.append(current);
@@ -65,6 +71,17 @@ public class GearRatios {
                 } else {
                     if (!numberStore.isEmpty() && symbolfound) {
                         foundNumbers.add(numberStore.toString());
+                        rowFoundNumbers.add(numberStore.toString());
+                    }
+                    numberStore.setLength(0);
+                    symbolfound = false;
+                }
+
+                //eol hack
+                if (i == schematic.getValue().size() - 1) {
+                    if (!numberStore.isEmpty() && symbolfound) {
+                        foundNumbers.add(numberStore.toString());
+                        rowFoundNumbers.add(numberStore.toString());
                     }
                     numberStore.setLength(0);
                     symbolfound = false;
@@ -72,18 +89,19 @@ public class GearRatios {
 
 
             }
-
+            foundMap.put(row, rowFoundNumbers);
         }
         System.out.println(foundNumbers);
+        for (Map.Entry<Integer, List<String>> row : foundMap.entrySet()) {
+            System.out.println(row.getKey() + " " + row.getValue());
+        }
 
         int totalValue = 0;
         for (String number : foundNumbers) {
             totalValue += Integer.parseInt(number);
         }
 
-
         System.out.println(totalValue);
-
 
     }
 
@@ -96,17 +114,12 @@ public class GearRatios {
     }
 
     public static boolean isSymbol(Character c) {
-        if (c == null || c == '.') {
+        if (c == null || Character.isDigit(c) || c == '.') {
             return false;
         } else {
-            try {
-                Integer.parseInt(c.toString());
-                return false;
-            } catch (NumberFormatException e) {
-                System.out.println("found character " + c);
-                return true;
-            }
+            return true;
         }
+
     }
 
     public static boolean isNumeric(Character c) {
