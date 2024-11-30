@@ -11,7 +11,7 @@ import java.util.Map;
 public class GearRatios {
 
     public static void main(String[] args) throws IOException {
-        List<String> lines = Files.readAllLines(Paths.get("src/day3/inputsamples"));
+        List<String> lines = Files.readAllLines(Paths.get("src/day3/input"));
         Map<Integer, List<Character>> schematicMap = new HashMap<>();
         int lineCount = 0;
         for (String line : lines) {
@@ -38,9 +38,6 @@ public class GearRatios {
 
                 char current = schematic.getValue().get(i);
                 currentLineRebuilt.append(current);
-                if (row == 2 && i > 135) {
-                    System.out.println("stop");
-                }
 
 
                 Character rightValue = getValue(schematicMap, row, i + 1);
@@ -117,16 +114,12 @@ public class GearRatios {
     }
 
     public static boolean isSymbol(Character c) {
-        if (c == null || c == '.') {
+        if (c == null || Character.isDigit(c) || c == '.') {
             return false;
         } else {
-            try {
-                Integer.parseInt(c.toString());
-                return false;
-            } catch (NumberFormatException e) {
-                return true;
-            }
+            return true;
         }
+
     }
 
     public static boolean isNumeric(Character c) {
